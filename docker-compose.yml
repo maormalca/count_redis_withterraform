@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  redis:
+    image: 'redis:4-alpine'
+    command: redis-server --requirepass A123456a123456
+    ports:
+      - '6379'
+  hits:
+    build: .
+    ports:
+      - 8081:8081
+    deploy:
+      replicas: 2
+
